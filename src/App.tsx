@@ -10,7 +10,7 @@ const App: React.FC = () => {
   const handleAdd = (e: React.FormEvent) => {
     e.preventDefault();
     if (todo) {
-      setTodos([...todos, { todo: todo, isDone: false, id: Date.now() }]);
+      setTodos([...todos, { todo: todo, id: (Math.random() * 10000).toString() }]);
       setTodo("");
     }
   };

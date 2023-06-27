@@ -1,7 +1,6 @@
 import React from "react";
 import { Todo } from "../models";
-import { AiFillEdit, AiFillDelete } from "react-icons/ai";
-import { MdOutlineDone } from "react-icons/md";
+import { AiFillDelete } from "react-icons/ai";
 import styles from "../assets/css/SingleTodo.module.css";
 
 type Props = {
@@ -10,7 +9,7 @@ type Props = {
 };
 
 const SingleTodo: React.FC<Props> = ({ todo, setTodos }: Props) => {
-  const handleDelete = (id: number) => {
+  const handleDelete = (id: string) => {
     setTodos((prev) => {
       return prev.filter((value) => value.id !== id);
     });
@@ -20,14 +19,8 @@ const SingleTodo: React.FC<Props> = ({ todo, setTodos }: Props) => {
     <form className={styles.todo__single}>
       <span>{todo.todo}</span>
       <div>
-        <span className={styles.icon}>
-          <AiFillEdit />
-        </span>
         <span className={styles.icon} onClick={() => handleDelete(todo.id)}>
           <AiFillDelete />
-        </span>
-        <span className={styles.icon}>
-          <MdOutlineDone />
         </span>
       </div>
     </form>

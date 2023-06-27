@@ -10,6 +10,10 @@
 }
 
 .icon {
-  padding: 3px 3px;
+  padding: 5px 5px;
   cursor: pointer;
+}
+
+.icon:last-child {
+  margin-left: 10px;
 }
