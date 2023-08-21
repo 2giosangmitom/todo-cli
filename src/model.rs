@@ -100,15 +100,17 @@ impl FromStr for Item {
       )));
     }
 
-    let id = splited[0].parse::<u32>().unwrap();
+    let id = splited[0].parse::<u32>()?;
     let name = &splited[1]
       .replace(COMMA_FAKE, ",")
       .replace(NEWLINE_FAKE, "\n");
-    let completed = splited[2].parse::<bool>().unwrap();
-    let deleted = splited[3].parse::<bool>().unwrap();
-    let created_at = str_to_timestamp(splited[4]).unwrap();
-    let completed_at = str_to_timestamp(splited[5]).unwrap();
-    let deleted_at = str_to_timestamp(splited[6]).unwrap();
+
+    let completed = splited[2].parse::<bool>()?;
+    let deleted = splited[3].parse::<bool>()?;
+
+    let created_at = str_to_timestamp(splited[4])?;
+    let completed_at = str_to_timestamp(splited[5])?;
+    let deleted_at = str_to_timestamp(splited[6])?;
 
     Ok(Item::new(
       id,
