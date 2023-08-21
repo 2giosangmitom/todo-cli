@@ -9,7 +9,8 @@ pub use service::*;
   name = "Todo CLI",
   author = "Vo Quang Chien",
   version = "1.0",
-  about = "Simple todo app written in Rust Programming Language!"
+  about = "Simple todo app written in Rust Programming Language!",
+  help_template = "{name} {version}\n{about}\nMaintainer: {author-with-newline}\n{usage-heading} {usage}\n{all-args}"
 )]
 struct CliArgs {
   /// Name of todo item want to add
