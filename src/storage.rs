@@ -188,11 +188,11 @@ impl Display for StorageError {
     use StorageError::*;
     match &self {
       FileHandle(source) => match source {
-        EnvVar(e) => write!(f, "Rtd storage file handle env var error: {}", e),
-        Io(e) => write!(f, "Rtd storage file handle io error: {}", e),
+        EnvVar(e) => write!(f, "Todo storage file handle env var error: {}", e),
+        Io(e) => write!(f, "Todo storage file handle io error: {}", e),
       },
-      ParseItem(e) => write!(f, "Rtd storage parse todo error: {}", e),
-      ItemNoExist(id) => write!(f, "Rtd storage todo no exist: {}", id),
+      ParseItem(e) => write!(f, "Todo storage parse todo error: {}", e),
+      ItemNoExist(id) => write!(f, "Todo storage todo no exist: {}", id),
     }
   }
 }

@@ -37,7 +37,8 @@ pub fn uncomplete_item(id: u32) -> Result<String> {
     completed: false,
     completed_at: None,
     ..item.clone()
-  })?;
+  })
+  .unwrap();
   Ok(format!("Uncompleted [{}]: {}\n", item.id, item.name))
 }
 
@@ -47,7 +48,8 @@ pub fn delete_item(id: u32) -> Result<String> {
     deleted: true,
     deleted_at: Some(Local::now().timestamp()),
     ..item.clone()
-  })?;
+  })
+  .unwrap();
   Ok(format!("Deleted [{}]: {}\n", item.id, item.name))
 }
 
@@ -71,7 +73,7 @@ pub fn destroy_deleted() -> Result<String> {
   }
   let mut result_string = String::new();
   for item in items {
-    result_string += &destroy_item(item.id)?
+    result_string += &destroy_item(item.id).unwrap();
   }
   result_string += "All deleted todos were destroyed.\n";
   Ok(result_string)
@@ -169,7 +171,7 @@ impl Display for ServiceError {
   fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
     use ServiceError::*;
     match self {
-      Storage(e) => writeln!(f, "Rtd service storage error: {}", e),
+      Storage(e) => writeln!(f, "Todo service storage error: {}", e),
     }
   }
 }

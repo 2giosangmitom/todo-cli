@@ -50,12 +50,8 @@ impl Item {
     let mut result = format!(
       "{:3} {} {} {}\n\n",
       self.id,
-      if self.completed {
-        "\u{2705}"
-      } else {
-        "\u{1f532}"
-      },
-      if self.deleted { "\u{1f6ae}" } else { "" },
+      if self.completed { "󰗠" } else { "" },
+      if self.deleted { "" } else { "" },
       self.name,
     );
 
@@ -104,17 +100,15 @@ impl FromStr for Item {
       )));
     }
 
-    let id = splited[0].parse::<u32>()?;
+    let id = splited[0].parse::<u32>().unwrap();
     let name = &splited[1]
       .replace(COMMA_FAKE, ",")
       .replace(NEWLINE_FAKE, "\n");
-
-    let completed = splited[2].parse::<bool>()?;
-    let deleted = splited[3].parse::<bool>()?;
-
-    let created_at = str_to_timestamp(splited[4])?;
-    let completed_at = str_to_timestamp(splited[5])?;
-    let deleted_at = str_to_timestamp(splited[6])?;
+    let completed = splited[2].parse::<bool>().unwrap();
+    let deleted = splited[3].parse::<bool>().unwrap();
+    let created_at = str_to_timestamp(splited[4]).unwrap();
+    let completed_at = str_to_timestamp(splited[5]).unwrap();
+    let deleted_at = str_to_timestamp(splited[6]).unwrap();
 
     Ok(Item::new(
       id,
