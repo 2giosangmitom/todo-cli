@@ -1,8 +1,0 @@
-.todos {
-  color: white;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 90%;
-  margin-left: 5%;
-}
