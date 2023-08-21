@@ -13,29 +13,29 @@ pub use service::*;
 )]
 struct CliArgs {
   /// Name of todo item want to add
-  #[arg(short, long, value_name = "item name")]
+  #[arg(short, long, value_name = "item_name")]
   add: Option<String>,
 
   /// Id of item want to mark as completed
-  #[arg(short, long, value_name = "item id")]
+  #[arg(short, long, value_name = "item_id")]
   complete: Option<u32>,
 
   /// Id of item want to mark as uncompleted
-  #[arg(short, long, value_name = "item id")]
+  #[arg(short, long, value_name = "item_id")]
   uncomplete: Option<u32>,
 
   /// Id of item want to delete,
   /// note that it won't destroy data record,
   /// if you want to destory a item, use `--destroy` option.
-  #[arg(short, long, value_name = "item id")]
+  #[arg(short, long, value_name = "item_id")]
   delete: Option<u32>,
 
   /// Restore a deleted todo item
-  #[arg(short, long, value_name = "item id")]
+  #[arg(short, long, value_name = "item_id")]
   restore: Option<u32>,
 
   /// Id of item to want destroy, this will actually destroy the data record,
-  #[arg(long, value_name = "item id")]
+  #[arg(long, value_name = "item_id")]
   destroy: Option<u32>,
 
   /// Destory all `deleted` marked todo items,
@@ -44,11 +44,11 @@ struct CliArgs {
   destroy_deleted: bool,
 
   /// Clear all records, make all list empty
-  #[arg(long, value_name = "item id")]
+  #[arg(long, value_name = "item_id")]
   clear: bool,
 
   /// List todo items
-  #[arg(short, long, value_name = "list type")]
+  #[arg(short, long, value_name = "list_type")]
   list: Option<Option<ListType>>,
 }
 
