@@ -27,7 +27,7 @@ struct CliArgs {
 
   /// Id of item want to delete,
   /// note that it won't destroy data record,
-  /// if you want to destory an item, use `--destroy` option.
+  /// if you want to destory an item, use '--destroy' option.
   #[arg(short, long, value_name = "item_id")]
   delete: Option<u32>,
 
@@ -39,7 +39,7 @@ struct CliArgs {
   #[arg(long, value_name = "item_id")]
   destroy: Option<u32>,
 
-  /// Destory all `deleted` marked todo items,
+  /// Destory all 'deleted' marked todo items,
   /// this will actually destroy the data record,
   #[arg(long)]
   destroy_deleted: bool,
