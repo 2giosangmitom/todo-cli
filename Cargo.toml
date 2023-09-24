@@ -4,6 +4,6 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-chrono = "0.4.26"
+chrono = "0.4.31"
 clap = { version = "4.3.23", features = ["derive"] }
 time = "0.3.29"
